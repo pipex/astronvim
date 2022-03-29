@@ -74,11 +74,7 @@ return function(plugins)
 		{
 			"ethanholz/nvim-lastplace",
 			config = function()
-				require("nvim-lastplace").setup({
-					lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
-					lastplace_ignore_filetype = { "gitcommit", "gitrebase", "svn", "hgcommit" },
-					lastplace_open_folds = true,
-				})
+				require("nvim-lastplace").setup(require("user.plugins.nvim-lastplace"))
 			end,
 		},
 		{
@@ -102,6 +98,53 @@ return function(plugins)
 			cmd = "TableModeToggle",
 			config = function()
 				vim.g.table_mode_corner = "|"
+			end,
+		},
+		{
+			"mfussenegger/nvim-dap",
+			module = "dap",
+			config = require("user.plugins.dap"),
+		},
+		{
+			"rcarriga/nvim-dap-ui",
+			after = "nvim-dap",
+			config = function()
+				local dap, dapui = require("dap"), require("dapui")
+				dapui.setup(require("user.plugins.dapui"))
+				-- add listeners to auto open DAP UI
+				dap.listeners.after.event_initialized["dapui_config"] = function()
+					dapui.open()
+				end
+				dap.listeners.before.event_terminated["dapui_config"] = function()
+					dapui.close()
+				end
+				dap.listeners.before.event_exited["dapui_config"] = function()
+					dapui.close()
+				end
+			end,
+		},
+		{
+			"mickael-menu/zk-nvim",
+			module = { "zk", "zk.commands" },
+			config = function()
+				require("zk").setup(require("user.plugins.zk"))
+			end,
+		},
+		{
+			"vitalk/vim-simple-todo",
+			config = function()
+				vim.g.simple_todo_map_keys = false
+			end,
+		},
+		{
+			"preservim/vim-markdown",
+			config = function()
+				vim.g.vim_markdown_auto_insert_bullets = false
+				vim.g.vim_markdown_new_list_item_indent = 0
+				vim.g.vim_markdown_folding_disabled = 1
+				vim.g.vim_markdown_conceal = 1
+				vim.g.vim_markdown_conceal_code_blocks = 0
+				vim.opt.conceallevel = 2
 			end,
 		},
 	}
