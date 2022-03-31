@@ -151,7 +151,6 @@ return function(plugins)
 
 	-- Disabled Default Lazy Loading
 	plugins["akinsho/nvim-toggleterm.lua"]["cmd"] = nil
-	plugins["nvim-telescope/telescope.nvim"]["cmd"] = nil
 	plugins["nvim-treesitter/nvim-treesitter"]["cmd"] = nil
 	plugins["nvim-treesitter/nvim-treesitter"]["event"] = nil
 
