@@ -14,6 +14,40 @@ local function opts(mode, prefix)
 end
 -- Normal Mode <leader> Mappings
 local Nmappings = {
+	a = {
+		name = "Annotate",
+		["<cr>"] = {
+			function()
+				require("neogen").generate()
+			end,
+			"Current",
+		},
+		c = {
+			function()
+				require("neogen").generate({ type = "class" })
+			end,
+			"Class",
+		},
+		f = {
+			function()
+				require("neogen").generate({ type = "func" })
+			end,
+			"Function",
+		},
+		t = {
+			function()
+				require("neogen").generate({ type = "type" })
+			end,
+			"Type",
+		},
+		F = {
+			function()
+				require("neogen").generate({ type = "file" })
+			end,
+			"File",
+		},
+	},
+
 	n = {
 		name = "Notes",
 		b = {

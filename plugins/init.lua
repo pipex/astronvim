@@ -147,15 +147,19 @@ return function(plugins)
 				vim.opt.conceallevel = 2
 			end,
 		},
+		{
+			"danymat/neogen",
+			module = "neogen",
+			cmd = "Neogen",
+			config = function()
+				require("neogen").setup(require("user.plugins.neogen"))
+			end,
+			requires = "nvim-treesitter/nvim-treesitter",
+		},
 	}
 
 	-- Disabled Default Plugins
 	plugins["nvim-neo-tree/neo-tree.nvim"] = nil
-
-	-- Disabled Default Lazy Loading
-	plugins["akinsho/nvim-toggleterm.lua"]["cmd"] = nil
-	plugins["nvim-treesitter/nvim-treesitter"]["cmd"] = nil
-	plugins["nvim-treesitter/nvim-treesitter"]["event"] = nil
 
 	return vim.tbl_deep_extend("force", plugins, my_plugins)
 end

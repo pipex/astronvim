@@ -27,6 +27,12 @@ return {
 		"yaml",
 		"nix",
 	},
+	highlight = {
+		additional_vim_regex_highlighting = { "markdown" },
+	},
+	rainbow = {
+		enable = true,
+	},
 	autopairs = nil,
 	matchup = {
 		enable = true,
@@ -72,8 +78,5 @@ return {
 				["<leader>sP"] = "@parameter.inner",
 			},
 		},
-	},
-	highlight = {
-		additional_vim_regex_highlighting = { "markdown" },
 	},
 }

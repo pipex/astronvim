@@ -1,10 +1,4 @@
 local config = {
-	plugins = {
-		packer = {
-			compile_path = vim.fn.stdpath("config") .. "/lua/packer_compiled.lua",
-		},
-	},
-
 	-- On/off virtual diagnostics text
 	diagnostics = {
 		virtual_text = true,
