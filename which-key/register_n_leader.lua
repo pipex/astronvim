@@ -82,9 +82,15 @@ local Nmappings = {
 		},
 		j = {
 			function()
-				require("zk.commands").get("ZkNew")({ dir = "journal", noInput = true })
+				require("zk.commands").get("ZkNew")({ dir = "journal/daily", noInput = true })
 			end,
-			"New Journal Entry",
+			"Today's journal",
+		},
+		m = {
+			function()
+				require("zk.commands").get("ZkNew")({ dir = "journal/monthly", noInput = true })
+			end,
+			"This months's tasks",
 		},
 		n = {
 			function()
