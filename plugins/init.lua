@@ -80,6 +80,7 @@ return function(plugins)
 		{
 			"alexghergh/nvim-tmux-navigation",
 			config = function()
+				-- Remove smart-splits mappings
 				require("nvim-tmux-navigation").setup({
 					disable_when_zoomed = true, -- defaults to false
 					keybindings = {
@@ -160,6 +161,10 @@ return function(plugins)
 
 	-- Disabled Default Plugins
 	plugins["nvim-neo-tree/neo-tree.nvim"] = nil
+
+	-- disable smart-splits as the mapping interfere with
+	-- tmux-navigator
+	plugins["mrjones2014/smart-splits.nvim"] = nil
 
 	return vim.tbl_deep_extend("force", plugins, my_plugins)
 end

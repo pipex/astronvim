@@ -69,8 +69,8 @@ local config = {
 		noremap("n", "<S-Tab>", ":bp<CR>")
 
 		vim.cmd([[
-       autocmd! TermMappings
-    ]])
+		  autocmd! TermMappings
+		]])
 
 		-- terminal mappings
 		tmap("<Leader><esc>", "<c-\\><c-n>")
