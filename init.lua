@@ -4,14 +4,14 @@ local config = {
 		virtual_text = true,
 	},
 
-	-- Disable default plugins
-	enabled = {
-		neo_tree = false,
+	options = {
+		opt = {
+			relativenumber = true,
+		},
 	},
 
 	polish = function()
 		local opts = { noremap = true, silent = true }
-		local set = vim.opt
 
 		local map = function(mode, shortcut, command)
 			vim.api.nvim_set_keymap(mode, shortcut, command, opts)
@@ -51,9 +51,6 @@ local config = {
 		local vunmap = function(shortcut)
 			unmap("v", shortcut)
 		end
-
-		-- Set options
-		set.relativenumber = true
 
 		-- Set key bindings
 		nmap("<C-s>", ":w!<CR>", opts)
