@@ -1,11 +1,5 @@
-return function()
-	-- Formatting and linting
-	-- https://github.com/jose-elias-alvarez/null-ls.nvim
-	local status_ok, null_ls = pcall(require, "null-ls")
-	if not status_ok then
-		return
-	end
-
+local status_ok, null_ls = pcall(require, "null-ls")
+if status_ok then
 	-- Check supported formatters
 	-- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
 	local formatting = null_ls.builtins.formatting
@@ -13,9 +7,7 @@ return function()
 	-- Check supported linters
 	-- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
 	local diagnostics = null_ls.builtins.diagnostics
-
-	null_ls.setup({
-		debug = false,
+	return {
 		sources = {
 			-- Set a formatter
 			formatting.stylua,
@@ -29,13 +21,12 @@ return function()
 		-- NOTE: You can remove this on attach function to disable format on save
 		on_attach = function(client)
 			if client.resolved_capabilities.document_formatting then
-				vim.cmd([[
-          augroup LspFormatting
-              autocmd! * <buffer>
-              autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
-          augroup END
-        ]])
+				vim.api.nvim_create_autocmd("BufWritePre", {
+					desc = "Auto format before save",
+					pattern = "<buffer>",
+					callback = vim.lsp.buf.formatting_sync,
+				})
 			end
 		end,
-	})
+	}
 end
