@@ -1,4 +1,5 @@
 local config = {
+	colorscheme = "catppuccin",
 	-- On/off virtual diagnostics text
 	diagnostics = {
 		virtual_text = true,
