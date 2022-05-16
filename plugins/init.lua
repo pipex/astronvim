@@ -67,9 +67,6 @@ return {
 					notify = false,
 				},
 			})
-
-			-- Set the colorscheme after the theme has been installed
-			vim.cmd([[colorscheme catppuccin]])
 		end,
 	},
 	{
