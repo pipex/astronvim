@@ -1,9 +1,9 @@
 return {
+	["declancm/cinnamon.nvim"] = { disable = true },
 	["nvim-neo-tree/neo-tree.nvim"] = { disable = true },
 	["mrjones2014/smart-splits.nvim"] = { disable = true },
-	{ "andymass/vim-matchup" },
-	{
-		"catppuccin/nvim",
+	["andymass/vim-matchup"] = {},
+	["catppuccin/nvim"] = {
 		as = "catppuccin",
 		config = function()
 			require("catppuccin").setup({
@@ -69,14 +69,12 @@ return {
 			})
 		end,
 	},
-	{
-		"ethanholz/nvim-lastplace",
+	["ethanholz/nvim-lastplace"] = {
 		config = function()
 			require("nvim-lastplace").setup(require("user.plugins.nvim-lastplace"))
 		end,
 	},
-	{
-		"alexghergh/nvim-tmux-navigation",
+	["alexghergh/nvim-tmux-navigation"] = {
 		config = function()
 			-- Remove smart-splits mappings
 			require("nvim-tmux-navigation").setup({
@@ -92,20 +90,17 @@ return {
 			})
 		end,
 	},
-	{
-		"dhruvasagar/vim-table-mode",
+	["dhruvasagar/vim-table-mode"] = {
 		cmd = "TableModeToggle",
 		config = function()
 			vim.g.table_mode_corner = "|"
 		end,
 	},
-	{
-		"mfussenegger/nvim-dap",
+	["mfussenegger/nvim-dap"] = {
 		module = "dap",
 		config = require("user.plugins.dap"),
 	},
-	{
-		"rcarriga/nvim-dap-ui",
+	["rcarriga/nvim-dap-ui"] = {
 		after = "nvim-dap",
 		config = function()
 			local dap, dapui = require("dap"), require("dapui")
@@ -122,21 +117,18 @@ return {
 			end
 		end,
 	},
-	{
-		"mickael-menu/zk-nvim",
+	["mickael-menu/zk-nvim"] = {
 		module = { "zk", "zk.commands" },
 		config = function()
 			require("zk").setup(require("user.plugins.zk"))
 		end,
 	},
-	{
-		"vitalk/vim-simple-todo",
+	["vitalk/vim-simple-todo"] = {
 		config = function()
 			vim.g.simple_todo_map_keys = false
 		end,
 	},
-	{
-		"preservim/vim-markdown",
+	["preservim/vim-markdown"] = {
 		config = function()
 			vim.g.vim_markdown_auto_insert_bullets = false
 			vim.g.vim_markdown_new_list_item_indent = 0
@@ -146,8 +138,7 @@ return {
 			vim.opt.conceallevel = 2
 		end,
 	},
-	{
-		"danymat/neogen",
+	["danymat/neogen"] = {
 		module = "neogen",
 		cmd = "Neogen",
 		config = function()
