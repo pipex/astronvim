@@ -46,13 +46,17 @@ local config = {
 		unmap("t", "<esc>")
 		unmap("t", "jk")
 
+		-- Redefine these mappings here as they don't take when defined on plugins
+		map("n", "<C-h>", ":lua require'nvim-tmux-navigation'.NvimTmuxNavigateLeft()<cr>", opts)
+		map("n", "<C-j>", ":lua require'nvim-tmux-navigation'.NvimTmuxNavigateDown()<cr>", opts)
+		map("n", "<C-k>", ":lua require'nvim-tmux-navigation'.NvimTmuxNavigateUp()<cr>", opts)
+		map("n", "<C-l>", ":lua require'nvim-tmux-navigation'.NvimTmuxNavigateRight()<cr>", opts)
+		map("n", "<C-\\>", ":lua require'nvim-tmux-navigation'.NvimTmuxNavigateLastActive()<cr>", opts)
+		map("n", "<C-Space>", ":lua require'nvim-tmux-navigation'.NvimTmuxNavigateNext()<cr>", opts)
+
 		-- extra mappings for terminal navigaton
 		tmap("<Leader><esc>", "<c-\\><c-n>")
 		tmap("<Esc><esc>", "<c-\\><c-n>:ToggleTerm<CR>")
-		tmap("<c-h>", "<c-\\><c-n><c-w>h")
-		tmap("<c-j>", "<c-\\><c-n><c-w>j")
-		tmap("<c-k>", "<c-\\><c-n><c-w>k")
-		tmap("<c-l>", "<c-\\><c-n><c-w>l")
 	end,
 }
 
