@@ -146,4 +146,15 @@ return {
 		end,
 		requires = "nvim-treesitter/nvim-treesitter",
 	},
+	["ruifm/gitlinker.nvim"] = {
+		config = function()
+			require("gitlinker").setup({
+				opts = {
+					-- action_callback = require("gitlinker.actions").open_in_browser,
+					-- print_url = false,
+				},
+			})
+		end,
+		requires = "nvim-lua/plenary.nvim",
+	},
 }

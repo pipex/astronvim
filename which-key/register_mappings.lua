@@ -1,6 +1,14 @@
 return {
 	n = {
 		["<leader>"] = {
+			["g"] = {
+				y = {
+					function()
+						require("gitlinker").get_buf_range_url("n")
+					end,
+					"Get repo URL",
+				},
+			},
 			a = {
 				name = "Annotate",
 				["<cr>"] = {
@@ -196,6 +204,14 @@ return {
 	},
 	v = {
 		["<leader>"] = {
+			["g"] = {
+				y = {
+					function()
+						require("gitlinker").get_buf_range_url("v")
+					end,
+					"Get repo URL",
+				},
+			},
 			n = {
 				name = "Notes",
 				s = { ":'<,'>lua require('zk.commands').get('ZkMatch')()<cr>", "Search" },
