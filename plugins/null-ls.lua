@@ -14,6 +14,7 @@ if status_ok then
 			formatting.prettier,
 			formatting.shfmt,
 			formatting.nixpkgs_fmt,
+			formatting.rustfmt,
 			-- Set a linter
 			diagnostics.cue_fmt,
 			diagnostics.shellcheck,
