@@ -7,7 +7,7 @@ return {
 		as = "catppuccin",
 		config = function()
 			require("catppuccin").setup({
-				transparent_background = true,
+				transparent_background = false,
 				term_colors = false,
 				styles = {
 					comments = { "italic" },
