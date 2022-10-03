@@ -1,5 +1,4 @@
 return {
-	["declancm/cinnamon.nvim"] = { disable = true },
 	["nvim-neo-tree/neo-tree.nvim"] = { disable = true },
 	["mrjones2014/smart-splits.nvim"] = { disable = true },
 	["andymass/vim-matchup"] = {},
