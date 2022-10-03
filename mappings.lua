@@ -18,9 +18,6 @@ return {
 		["<C-c>"] = "<Esc>",
 	},
 	t = {
-		-- disable some defaults first
-		jk = false,
-		["<esc>"] = false,
 		-- extra mappings for terminal navigaton
 		["<Leader><esc>"] = "<c-\\><c-n>",
 		["<Esc><esc>"] = "<c-\\><c-n>:ToggleTerm<CR>",
