@@ -9,5 +9,6 @@ return {
 		"shfmt",
 		"cue_fmt",
 		"shellcheck",
+		"rust",
 	},
 }
