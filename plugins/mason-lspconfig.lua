@@ -3,7 +3,6 @@ return {
 	ensure_installed = {
 		"cssls",
 		"html",
-		"marksman",
 		"jsonls",
 		"sumneko_lua",
 		"tsserver",
