@@ -95,27 +95,6 @@ return {
 			vim.g.table_mode_corner = "|"
 		end,
 	},
-	["mfussenegger/nvim-dap"] = {
-		module = "dap",
-		config = require("user.plugins.dap"),
-	},
-	["rcarriga/nvim-dap-ui"] = {
-		after = "nvim-dap",
-		config = function()
-			local dap, dapui = require("dap"), require("dapui")
-			dapui.setup(require("user.plugins.dapui"))
-			-- add listeners to auto open DAP UI
-			dap.listeners.after.event_initialized["dapui_config"] = function()
-				dapui.open()
-			end
-			dap.listeners.before.event_terminated["dapui_config"] = function()
-				dapui.close()
-			end
-			dap.listeners.before.event_exited["dapui_config"] = function()
-				dapui.close()
-			end
-		end,
-	},
 	["mickael-menu/zk-nvim"] = {
 		module = { "zk", "zk.commands" },
 		config = function()
@@ -152,5 +131,26 @@ return {
 			})
 		end,
 		requires = "nvim-lua/plenary.nvim",
+	},
+	["vito-c/jq.vim"] = {},
+	["gpanders/editorconfig.nvim"] = {},
+	["zbirenbaum/copilot.lua"] = {
+		config = function()
+			require("copilot").setup()
+		end,
+	},
+	["zbirenbaum/copilot-cmp"] = {
+		after = { "copilot.lua" },
+		config = function()
+			require("copilot_cmp").setup()
+		end,
+	},
+	["ojroques/vim-oscyank"] = {
+		config = function()
+			vim.cmd(
+				[[autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankReg "' | endif]]
+			)
+			vim.g.oscyank_term = "default"
+		end,
 	},
 }

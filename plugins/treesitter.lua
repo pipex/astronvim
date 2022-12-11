@@ -27,6 +27,7 @@ return {
 		"yaml",
 		"nix",
 		"rust",
+		"jq",
 	},
 	highlight = {
 		additional_vim_regex_highlighting = { "markdown" },
