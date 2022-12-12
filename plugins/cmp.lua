@@ -14,9 +14,6 @@ if not luasnip_ok or not cmp_ok then
 end
 
 return {
-  sources = {
-    { name = "copilot", group_index = 2 },
-  },
   mapping = {
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
