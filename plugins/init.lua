@@ -143,6 +143,10 @@ return {
 						enabled = true,
 						auto_trigger = true,
 						debounce = 150,
+						keymap = {
+							next = "<C-]>",
+							dismiss = "<C-\\>",
+						},
 					},
 				})
 			end, 100)
