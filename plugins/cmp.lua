@@ -21,5 +21,12 @@ return {
         cmp.mapping.confirm({ select = false })(fallback)
       end
     end),
+    ["<ESC>"] = cmp.mapping(function(fallback)
+      if copilot.is_visible() then
+        copilot.dismiss()
+      else
+        fallback()
+      end
+    end),
   },
 }
