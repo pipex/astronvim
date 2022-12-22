@@ -135,18 +135,17 @@ return {
 	["vito-c/jq.vim"] = {},
 	["gpanders/editorconfig.nvim"] = {},
 	["zbirenbaum/copilot.lua"] = {
+		event = "VimEnter",
 		config = function()
-			require("copilot").setup({
-				suggestion = {
-					enabled = true,
-					auto_trigger = true,
-					keymap = {
-						dismiss = "<C-[>",
-						next = "<C-]>",
-						accept = "<C-\\>",
+			vim.defer_fn(function()
+				require("copilot").setup({
+					suggestion = {
+						enabled = true,
+						auto_trigger = true,
+						debounce = 150,
 					},
-				},
-			})
+				})
+			end, 100)
 		end,
 	},
 	["ojroques/vim-oscyank"] = {

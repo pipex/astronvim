@@ -1,3 +1,5 @@
+local copilot = require("copilot.suggestion")
+
 return {
 	n = {
 		--  ; as :
@@ -21,5 +23,14 @@ return {
 		-- extra mappings for terminal navigaton
 		["<Leader><esc>"] = "<c-\\><c-n>",
 		["<Esc><esc>"] = "<c-\\><c-n>:ToggleTerm<CR>",
+	},
+	i = {
+		["<cr>"] = function()
+			if copilot.is_visible() then
+				copilot.accept()
+			else
+				return "<cr>"
+			end
+		end,
 	},
 }
