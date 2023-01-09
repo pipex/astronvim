@@ -1,153 +1,93 @@
 return {
-	["nvim-neo-tree/neo-tree.nvim"] = { disable = true },
-	["mrjones2014/smart-splits.nvim"] = {
-		config = function()
-			require("smart-splits").setup({
-				tmux_integration = true,
-			})
-		end,
-	},
-	["andymass/vim-matchup"] = {},
-	["catppuccin/nvim"] = {
-		as = "catppuccin",
-		config = function()
-			require("catppuccin").setup({
-				transparent_background = true,
-				term_colors = false,
-				styles = {
-					comments = { "italic" },
-					functions = { "italic" },
-					keywords = { "italic" },
-					strings = {},
-					variables = { "italic" },
-				},
-				integrations = {
-					treesitter = true,
-					native_lsp = {
-						enabled = true,
-						virtual_text = {
-							errors = { "italic" },
-							hints = { "italic" },
-							warnings = { "italic" },
-							information = { "italic" },
-						},
-						underlines = {
-							errors = { "underline" },
-							hints = { "underline" },
-							warnings = { "underline" },
-							information = { "underline" },
-						},
-					},
-					lsp_trouble = false,
-					cmp = true,
-					lsp_saga = true,
-					gitgutter = false,
-					gitsigns = true,
-					telescope = true,
-					nvimtree = {
-						enabled = true,
-						show_root = false,
-						transparent_panel = false,
-					},
-					neotree = {
-						enabled = false,
-						show_root = true,
-						transparent_panel = true,
-					},
-					which_key = true,
-					indent_blankline = {
-						enabled = true,
-						colored_indent_levels = false,
-					},
-					dashboard = false,
-					neogit = true,
-					vim_sneak = false,
-					fern = false,
-					barbar = false,
-					bufferline = true,
-					markdown = true,
-					lightspeed = false,
-					ts_rainbow = true,
-					hop = true,
-					notify = false,
-				},
-			})
-		end,
-	},
-	["ethanholz/nvim-lastplace"] = {
-		config = function()
-			require("nvim-lastplace").setup(require("user.plugins.nvim-lastplace"))
-		end,
-	},
-	["dhruvasagar/vim-table-mode"] = {
-		cmd = "TableModeToggle",
-		config = function()
-			vim.g.table_mode_corner = "|"
-		end,
-	},
-	["mickael-menu/zk-nvim"] = {
-		module = { "zk", "zk.commands" },
-		config = function()
-			require("zk").setup(require("user.plugins.zk"))
-		end,
-	},
-	["vitalk/vim-simple-todo"] = {
-		config = function()
-			vim.g.simple_todo_map_keys = false
-		end,
-	},
-	["preservim/vim-markdown"] = {
-		config = function()
-			vim.g.vim_markdown_auto_insert_bullets = false
-			vim.g.vim_markdown_new_list_item_indent = 0
-			vim.g.vim_markdown_folding_disabled = 1
-		end,
-	},
-	["danymat/neogen"] = {
-		module = "neogen",
-		cmd = "Neogen",
-		config = function()
-			require("neogen").setup(require("user.plugins.neogen"))
-		end,
-		requires = "nvim-treesitter/nvim-treesitter",
-	},
-	["ruifm/gitlinker.nvim"] = {
-		config = function()
-			require("gitlinker").setup({
-				opts = {
-					-- action_callback = require("gitlinker.actions").open_in_browser,
-					-- print_url = false,
-				},
-			})
-		end,
-		requires = "nvim-lua/plenary.nvim",
-	},
-	["vito-c/jq.vim"] = {},
-	["gpanders/editorconfig.nvim"] = {},
-	["zbirenbaum/copilot.lua"] = {
-		event = "VimEnter",
-		config = function()
-			vim.defer_fn(function()
-				require("copilot").setup({
-					suggestion = {
-						enabled = true,
-						auto_trigger = true,
-						debounce = 1000,
-						keymap = {
-							next = "<C-]>",
-							dismiss = "<C-\\>",
-						},
-					},
-				})
-			end, 100)
-		end,
-	},
-	["ojroques/vim-oscyank"] = {
-		config = function()
-			vim.cmd(
-				[[autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankReg "' | endif]]
-			)
-			vim.g.oscyank_term = "default"
-		end,
-	},
+  { "nvim-neo-tree/neo-tree.nvim", enabled = false },
+  { "akinsho/toggleterm.nvim", opts = { terminal_mappings = false } },
+  { "rcarriga/nvim-notify", opts = { background_colour = "#000000" } },
+
+  {
+    "ethanholz/nvim-lastplace",
+    event = "BufRead",
+    opts = {
+      lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
+      lastplace_ignore_filetype = { "gitcommit", "gitrebase", "svn", "hgcommit" },
+      lastplace_open_folds = true,
+    },
+  },
+
+  { "gpanders/editorconfig.nvim", lazy = false },
+
+  { "vito-c/jq.vim", ft = "jq" },
+
+  {
+    "ojroques/vim-oscyank",
+    lazy = false,
+    init = function()
+      vim.cmd [[autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankReg "' | endif]]
+      vim.g.oscyank_term = "default"
+    end,
+  },
+
+  {
+    "danymat/neogen",
+    cmd = "Neogen",
+    opts = function()
+      local M = {}
+      M.snippet_engine = "luasnip"
+      M.languages = {}
+      M.languages.python = { template = { annotation_convention = "google_docstrings" } }
+      M.languages.typescript = { template = { annotation_convention = "tsdoc" } }
+      M.languages.typescriptreact = M.languages.typescript
+      return M
+    end,
+  },
+
+  {
+    "dhruvasagar/vim-table-mode",
+    cmd = "TableModeToggle",
+    init = function() vim.g.table_mode_corner = "|" end,
+  },
+
+  {
+    "vitalk/vim-simple-todo",
+    lazy = false,
+    init = function() vim.g.simple_todo_map_keys = false end,
+  },
+
+  {
+    "preservim/vim-markdown",
+    ft = "markdown",
+    init = function()
+      vim.g.vim_markdown_auto_insert_bullets = false
+      vim.g.vim_markdown_new_list_item_indent = 0
+      vim.g.vim_markdown_folding_disabled = 1
+    end,
+  },
+
+  {
+    "mickael-menu/zk-nvim",
+    opts = {
+      picker = "telescope",
+      lsp = {
+        config = {
+          cmd = { "zk", "lsp" },
+          name = "zk",
+          on_attach = require("astronvim.utils.lsp").on_attach,
+          capabilities = require("astronvim.utils.lsp").capabilities,
+        },
+        auto_attach = {
+          enabled = true,
+          filetypes = { "markdown" },
+        },
+      },
+    },
+  },
+
+  {
+    "ruifm/gitlinker.nvim",
+    opts = {
+      opts = {
+        -- action_callback = require("gitlinker.actions").open_in_browser,
+        -- print_url = false,
+      },
+    },
+  },
 }
