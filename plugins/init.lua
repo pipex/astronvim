@@ -142,7 +142,7 @@ return {
 					suggestion = {
 						enabled = true,
 						auto_trigger = true,
-						debounce = 150,
+						debounce = 1000,
 						keymap = {
 							next = "<C-]>",
 							dismiss = "<C-\\>",
