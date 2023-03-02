@@ -1,6 +1,12 @@
 return {
 	["nvim-neo-tree/neo-tree.nvim"] = { disable = true },
-	["mrjones2014/smart-splits.nvim"] = { disable = true },
+	["mrjones2014/smart-splits.nvim"] = {
+		config = function()
+			require("smart-splits").setup({
+				tmux_integration = true,
+			})
+		end,
+	},
 	["andymass/vim-matchup"] = {},
 	["catppuccin/nvim"] = {
 		as = "catppuccin",
@@ -71,22 +77,6 @@ return {
 	["ethanholz/nvim-lastplace"] = {
 		config = function()
 			require("nvim-lastplace").setup(require("user.plugins.nvim-lastplace"))
-		end,
-	},
-	["alexghergh/nvim-tmux-navigation"] = {
-		config = function()
-			-- Remove smart-splits mappings
-			require("nvim-tmux-navigation").setup({
-				disable_when_zoomed = true, -- defaults to false
-				keybindings = {
-					left = "<C-h>",
-					down = "<C-j>",
-					up = "<C-k>",
-					right = "<C-l>",
-					last_active = "<C-\\>",
-					next = "<C-Space>",
-				},
-			})
 		end,
 	},
 	["dhruvasagar/vim-table-mode"] = {
