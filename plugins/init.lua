@@ -27,20 +27,6 @@ return {
   },
 
   {
-    "danymat/neogen",
-    cmd = "Neogen",
-    opts = function()
-      local M = {}
-      M.snippet_engine = "luasnip"
-      M.languages = {}
-      M.languages.python = { template = { annotation_convention = "google_docstrings" } }
-      M.languages.typescript = { template = { annotation_convention = "tsdoc" } }
-      M.languages.typescriptreact = M.languages.typescript
-      return M
-    end,
-  },
-
-  {
     "dhruvasagar/vim-table-mode",
     cmd = "TableModeToggle",
     init = function() vim.g.table_mode_corner = "|" end,
@@ -63,31 +49,9 @@ return {
   },
 
   {
-    "mickael-menu/zk-nvim",
-    opts = {
-      picker = "telescope",
-      lsp = {
-        config = {
-          cmd = { "zk", "lsp" },
-          name = "zk",
-          on_attach = require("astronvim.utils.lsp").on_attach,
-          capabilities = require("astronvim.utils.lsp").capabilities,
-        },
-        auto_attach = {
-          enabled = true,
-          filetypes = { "markdown" },
-        },
-      },
-    },
-  },
-
-  {
     "ruifm/gitlinker.nvim",
-    opts = {
-      opts = {
-        -- action_callback = require("gitlinker.actions").open_in_browser,
-        -- print_url = false,
-      },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
     },
   },
 }
