@@ -21,7 +21,7 @@ return {
     "ojroques/vim-oscyank",
     lazy = false,
     init = function()
-      vim.cmd [[autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankReg "' | endif]]
+      vim.cmd [[autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankRegister "' | endif]]
       vim.g.oscyank_term = "default"
     end,
   },
