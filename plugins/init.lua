@@ -33,22 +33,6 @@ return {
   },
 
   {
-    "vitalk/vim-simple-todo",
-    lazy = false,
-    init = function() vim.g.simple_todo_map_keys = false end,
-  },
-
-  {
-    "preservim/vim-markdown",
-    ft = "markdown",
-    init = function()
-      vim.g.vim_markdown_auto_insert_bullets = false
-      vim.g.vim_markdown_new_list_item_indent = 0
-      vim.g.vim_markdown_folding_disabled = 1
-    end,
-  },
-
-  {
     "ruifm/gitlinker.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
