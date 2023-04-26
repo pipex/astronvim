@@ -1,7 +1,5 @@
 return {
   n = {
-    --  ; as :
-    [";"] = ":",
     -- Buffer nav with Tab
     ["<Tab>"] = ":bn<CR>",
     ["<S-Tab>"] = ":bp<CR>",
