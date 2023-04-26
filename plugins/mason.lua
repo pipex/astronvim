@@ -12,7 +12,7 @@ return {
         "lua_ls",
         "tsserver",
         "yamlls",
-        "rnix-lsp",
+        "rnix",
       },
     },
   },
