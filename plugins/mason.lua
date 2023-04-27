@@ -13,6 +13,7 @@ return {
         "tsserver",
         "yamlls",
         "rnix",
+        "rust_analyzer",
       },
     },
   },
