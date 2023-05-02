@@ -5,6 +5,16 @@ return {
     ["<S-Tab>"] = ":bp<CR>",
     -- Gitlinker
     ["<leader>gy"] = { function() require("gitlinker").get_buf_range_url "n" end, desc = "URL on remote" },
+    ["<leader>lo"] = {
+      function()
+        vim.lsp.buf.execute_command {
+          command = "_typescript.organizeImports",
+          arguments = { vim.api.nvim_buf_get_name(0) },
+          title = "",
+        }
+      end,
+      desc = "Organize Imports",
+    },
   },
   v = {
     -- Gitlinker
