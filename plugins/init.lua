@@ -1,5 +1,4 @@
 return {
-  { "nvim-neo-tree/neo-tree.nvim", enabled = false },
   { "akinsho/toggleterm.nvim",     opts = { terminal_mappings = false } },
   { "rcarriga/nvim-notify",        opts = { background_colour = "#000000" } },
 
