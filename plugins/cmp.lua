@@ -16,6 +16,27 @@ return {
             cmp.mapping.confirm { select = false }(fallback)
           end
         end),
+        ["<Tab>"] = cmp.mapping(function(fallback)
+          if copilot.is_visible() then
+            copilot.next()
+          else
+            fallback()
+          end
+        end),
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+          if copilot.is_visible() then
+            copilot.prev()
+          else
+            fallback()
+          end
+        end),
+        ["<C-c>"] = cmp.mapping(function(fallback)
+          if copilot.is_visible() then
+            copilot.dismiss()
+          else
+            fallback()
+          end
+        end),
         ["<ESC>"] = cmp.mapping(function(fallback)
           if copilot.is_visible() then
             copilot.dismiss()
