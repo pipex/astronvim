@@ -1,5 +1,5 @@
 return {
-  "AstroNvim/astrocommunity",
+  { "AstroNvim/astrocommunity",                          dev = false },
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.json" },
@@ -23,6 +23,11 @@ return {
       end
       opts.handlers = handlers
     end,
+  },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    enabled = false,
+    opts = {},
   },
   {
     "mfussenegger/nvim-dap",
