@@ -13,7 +13,7 @@ return {
           if copilot.is_visible() then
             copilot.accept()
           else
-            cmp.mapping.confirm { select = false }(fallback)
+            cmp.mapping.confirm { select = false } (fallback)
           end
         end),
         ["<Tab>"] = cmp.mapping(function(fallback)
@@ -54,7 +54,7 @@ return {
         suggestion = {
           enabled = true,
           auto_trigger = true,
-          debounce = 150,
+          debounce = 1000,
           keymap = {
             next = "<C-]>",
             dismiss = "<C-\\>",
