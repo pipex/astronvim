@@ -1,7 +1,6 @@
 return {
-  { "akinsho/toggleterm.nvim",     opts = { terminal_mappings = false } },
-  { "rcarriga/nvim-notify",        opts = { background_colour = "#000000" } },
-
+  { "akinsho/toggleterm.nvim", opts = { terminal_mappings = false } },
+  { "rcarriga/nvim-notify",    opts = { background_colour = "#000000" } },
   {
     "ethanholz/nvim-lastplace",
     event = "BufRead",
@@ -11,7 +10,6 @@ return {
       lastplace_open_folds = true,
     },
   },
-
   { "gpanders/editorconfig.nvim", lazy = false },
 
   { "vito-c/jq.vim",              ft = "jq" },
