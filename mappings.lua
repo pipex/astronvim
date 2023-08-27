@@ -15,6 +15,13 @@ return {
       end,
       desc = "Organize Imports",
     },
+    -- Map home row arrows to something more compatible with
+    -- my keyboard
+    [";"] = "l",
+    ["l"] = "k",
+    ["k"] = "j",
+    ["j"] = "h",
+    ["h"] = "",
   },
   v = {
     -- Gitlinker
