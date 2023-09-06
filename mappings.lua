@@ -15,7 +15,7 @@ return {
       end,
       desc = "Organize Imports",
     },
-    -- Map home row arrows to something more compatible with
+    -- map home row arrows to something more compatible with
     -- my keyboard
     [";"] = "l",
     ["l"] = "k",
@@ -26,6 +26,13 @@ return {
   v = {
     -- Gitlinker
     ["<leader>gy"] = { function() require("gitlinker").get_buf_range_url "v" end, desc = "URL on remote" },
+    -- Map home row arrows to something more compatible with
+    -- my keyboard
+    [";"] = "l",
+    ["l"] = "k",
+    ["k"] = "j",
+    ["j"] = "h",
+    ["h"] = "",
   },
   [""] = {
     -- Use Ctrl+C to go back to normal mode (useful with ipad keyboard which does not have a esc key)
