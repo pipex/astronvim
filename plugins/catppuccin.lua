@@ -19,6 +19,11 @@ return {
       neogit = true,
       bufferline = true,
       markdown = true,
+      indent_blankline = {
+        enabled = true,
+        scope_color = "surface2", -- catppuccin color (eg. `lavender`) Default: text
+        colored_indent_levels = false,
+      },
     },
   },
 }
