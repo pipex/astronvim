@@ -1,6 +1,14 @@
+---@type LazySpec
 return {
   "catppuccin/nvim",
   name = "catppuccin",
+  dependencies = {
+    {
+      "AstroNvim/astroui",
+      opts = { colorscheme = "catppuccin" } --[[@as AstroUIOpts]],
+    },
+  },
+  ---@type CatppuccinOptions
   opts = {
     transparent_background = true,
     term_colors = false,
