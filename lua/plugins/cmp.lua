@@ -1,19 +1,19 @@
+---@type LazySpec
 return {
   "hrsh7th/nvim-cmp",
   opts = function(_, opts)
     local cmp, copilot = require "cmp", require "copilot.suggestion"
 
     cmp.event:on("menu_opened", function() vim.b.copilot_suggestion_hidden = true end)
-
     cmp.event:on("menu_closed", function() vim.b.copilot_suggestion_hidden = false end)
 
-    return require("astronvim.utils").extend_tbl(opts, {
+    return require("astrocore").extend_tbl(opts, {
       mapping = {
         ["<CR>"] = cmp.mapping(function(fallback)
           if copilot.is_visible() then
             copilot.accept()
           else
-            cmp.mapping.confirm { select = false } (fallback)
+            cmp.mapping.confirm { select = false }(fallback)
           end
         end),
         ["<Tab>"] = cmp.mapping(function(fallback)
