@@ -52,13 +52,8 @@ return {
       "zbirenbaum/copilot.lua",
       opts = {
         suggestion = {
-          enabled = true,
           auto_trigger = true,
           debounce = 1000,
-          keymap = {
-            next = "<C-]>",
-            dismiss = "<C-\\>",
-          },
         },
       },
     },
