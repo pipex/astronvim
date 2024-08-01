@@ -1,10 +1,6 @@
 ---@type LazyConfig
 require("lazy").setup({
   { "AstroNvim/AstroNvim", version = "^4", import = "astronvim.plugins" },
-  -- Which key is a bit buggy right now, this pins it to the latest working version
-  { "AstroNvim/astrocore", version = "1.6.1" },
-  { "AstroNvim/astrolsp", version = "1.0.5" },
-  { "folke/which-key.nvim", version = "2.1" },
   { import = "community" },
   { import = "plugins" },
 } --[[@as LazySpec]], {
