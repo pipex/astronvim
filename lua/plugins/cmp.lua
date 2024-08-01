@@ -5,14 +5,6 @@ return {
     local cmp = require "cmp"
 
     return require("astrocore").extend_tbl(opts, {
-      filetype = {
-        txt = {
-          enabled = false,
-        },
-        gitcommit = {
-          enabled = false,
-        },
-      },
       enabled = function()
         local context = require "cmp.config.context"
         local disabled = false
