@@ -23,8 +23,8 @@ return {
         {
           "zbirenbaum/copilot.lua",
           opts = {
-            suggestion = {
-              debounce = 1000,
+            server_opts_overrides = {
+              delayCompletions = 1000,
             },
           },
         },
