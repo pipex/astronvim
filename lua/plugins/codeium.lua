@@ -15,6 +15,7 @@ return {
         if not snip_status_ok then return end
         neocodeium.setup {
           filter = function() return not cmp.visible() end,
+          silent = true,
         }
         cmp.setup {
           completion = {
