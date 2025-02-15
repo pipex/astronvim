@@ -22,7 +22,7 @@ return {
               lua = true,
               javascript = true,
             }
-            return allowed_filetypes[vim.bo.filetype] or not cmp.visible()
+            return allowed_filetypes[vim.bo.filetype] and not cmp.visible()
           end,
           silent = true,
         }
