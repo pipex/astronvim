@@ -14,13 +14,18 @@ return {
         local snip_status_ok, luasnip = pcall(require, "luasnip")
         if not snip_status_ok then return end
 
-        -- make a list of supported filetypes
-        -- filter out unsupported filetypes
-        local filetypes = { "typescript", "javascript", "rust", "lua", "bash" }
-        local ft = vim.bo.filetype
         neocodeium.setup {
-          filter = function() return vim.tbl_contains(filetypes, ft) and not cmp.visible() end,
+          filter = function() return not cmp.visible() end,
           silent = true,
+          filetypes = {
+            help = false,
+            gitcommit = false,
+            gitrebase = false,
+            rust = true,
+            typescript = true,
+            lua = true,
+            javascript = true,
+          },
         }
         cmp.setup {
           completion = {
