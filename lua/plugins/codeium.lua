@@ -37,6 +37,13 @@ return {
           end
         end, { "i", "s" })
 
+        opts.mapping["<C-X>"] = cmp.mapping(function(fallback)
+          if neocodeium.visible() then
+            neocodeium.cycle_or_complete()
+          else
+            fallback()
+          end
+        end)
         opts.mapping["<C-C>"] = cmp.mapping(function(fallback)
           if neocodeium.visible() then
             neocodeium.clear()
