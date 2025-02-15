@@ -25,6 +25,7 @@ return {
             typescript = true,
             lua = true,
             javascript = true,
+            ["."] = false,
           },
         }
         cmp.setup {
