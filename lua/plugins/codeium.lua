@@ -13,7 +13,14 @@ return {
         local cmp, neocodeium = require "cmp", require "neocodeium"
         local snip_status_ok, luasnip = pcall(require, "luasnip")
         if not snip_status_ok then return end
-        neocodeium.setup()
+        neocodeium.setup {
+          filter = function() return not cmp.visible() end,
+        }
+        cmp.setup {
+          completion = {
+            autocomplete = false,
+          },
+        }
 
         if not opts.mapping then opts.mapping = {} end
         opts.mapping["<Tab>"] = cmp.mapping(function(fallback)
@@ -32,14 +39,14 @@ return {
 
         opts.mapping["<C-C>"] = cmp.mapping(function(fallback)
           if neocodeium.visible() then
-            neocodeium.dismiss()
+            neocodeium.clear()
           else
             fallback()
           end
         end)
         opts.mapping["<ESC>"] = cmp.mapping(function(fallback)
           if neocodeium.visible() then
-            neocodeium.dismiss()
+            neocodeium.clear()
           else
             fallback()
           end

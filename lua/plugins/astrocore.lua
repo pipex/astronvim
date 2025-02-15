@@ -36,13 +36,8 @@ return {
       },
       [""] = {
         -- Use Ctrl+C to go back to normal mode (useful with ipad keyboard which does not have a esc key)
-        ["<C-c>"] = "<Esc>",
+        ["<C-C>"] = "<Esc>",
       },
-      -- t = {
-      --   -- extra mappings for terminal navigaton
-      --   ["<Leader><esc>"] = "<c-\\><c-n>",
-      --   ["<Esc><esc>"] = "<c-\\><c-n>:ToggleTerm<CR>",
-      -- },
     },
   },
 }
