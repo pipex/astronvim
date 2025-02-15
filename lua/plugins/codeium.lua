@@ -15,16 +15,15 @@ return {
         if not snip_status_ok then return end
 
         neocodeium.setup {
-          enabled = function()
+          filter = function()
             local allowed_filetypes = {
               rust = true,
               typescript = true,
               lua = true,
               javascript = true,
             }
-            return allowed_filetypes[vim.bo.filetype] or false
+            return allowed_filetypes[vim.bo.filetype] or not cmp.visible()
           end,
-          filter = function() return not cmp.visible() end,
           silent = true,
         }
         cmp.setup {
