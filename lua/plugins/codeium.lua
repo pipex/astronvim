@@ -15,14 +15,10 @@ return {
         if not snip_status_ok then return end
 
         neocodeium.setup {
-          filter = function()
-            local allowed_filetypes = {
-              rust = true,
-              typescript = true,
-              lua = true,
-              javascript = true,
-            }
-            return allowed_filetypes[vim.bo.filetype] and not cmp.visible()
+          filter = function(bufnr)
+            local filetypes = { "rust", "javascript", "typescript", "lua" }
+            return vim.tbl_contains(filetypes, vim.api.nvim_get_option_value("filetype", { buf = bufnr }))
+              and not cmp.visible()
           end,
           silent = true,
         }
