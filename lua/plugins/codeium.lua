@@ -3,6 +3,34 @@ local function has_words_before()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
 end
 
+local function is_private_project()
+  -- Check package.json for "private": true
+  local package_json = vim.fn.findfile("package.json", ".;")
+  if package_json ~= "" then
+    local file = io.open(package_json, "r")
+    if file then
+      local content = file:read "*all"
+      file:close()
+      if content:match '"private"%s*:%s*true' then return true end
+    end
+  end
+
+  -- Check Cargo.toml for "publish = false"
+  local cargo_toml = vim.fn.findfile("Cargo.toml", ".;")
+  if cargo_toml ~= "" then
+    local file = io.open(cargo_toml, "r")
+    if file then
+      local content = file:read "*all"
+      file:close()
+      if content:match "publish%s*=%s*false" then return true end
+    end
+  end
+
+  return false
+end
+
+if is_private_project() then return {} end
+
 return {
   "monkoose/neocodeium",
   event = "VeryLazy",
@@ -16,8 +44,8 @@ return {
 
         neocodeium.setup {
           filter = function(bufnr)
-            local filetypes = { "rust", "javascript", "typescript", "lua" }
-            return vim.tbl_contains(filetypes, vim.api.nvim_get_option_value("filetype", { buf = bufnr }))
+            local allowed_filetypes = { "rust", "javascript", "typescript", "lua" }
+            return vim.tbl_contains(allowed_filetypes, vim.api.nvim_get_option_value("filetype", { buf = bufnr }))
               and not cmp.visible()
           end,
           silent = true,
