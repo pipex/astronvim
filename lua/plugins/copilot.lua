@@ -73,7 +73,13 @@ return {
         -- disable cmp autocomplete if copilot is enabled
         cmp.setup {
           completion = {
-            autocomplete = false,
+            autocomplete = (function()
+              local cmd, types = require "copilot.command", require "cmp.types"
+              local status = cmd.status()
+              if status ~= nil and string.find(status, "Enabled") then return false end
+              -- use default autocomplete configuration
+              return { types.cmp.TriggerEvent.TextChanged }
+            end)(),
           },
         }
 
