@@ -62,7 +62,7 @@ return {
         ["*"] = false,
       },
       server_opts_overrides = {
-        delayCompletions = 1000,
+        delayCompletions = 2000,
       },
     }
   end,
