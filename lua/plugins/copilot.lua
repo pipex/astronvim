@@ -47,6 +47,10 @@ return {
       suggestion = {
         enabled = true,
         auto_trigger = false,
+        keymap = {
+          next = "<C-X>",
+          prev = "<C-Z>",
+        },
       },
       filetypes = {
         javascript = true,
