@@ -46,7 +46,7 @@ return {
     require("copilot").setup {
       suggestion = {
         enabled = true,
-        auto_trigger = true,
+        auto_trigger = false,
       },
       filetypes = {
         javascript = true,
@@ -55,6 +55,7 @@ return {
           return true
         end,
         lua = true,
+        go = true,
         rust = function()
           if is_private_project() then return false end
           return true
@@ -62,7 +63,7 @@ return {
         ["*"] = false,
       },
       server_opts_overrides = {
-        delayCompletions = 2000,
+        delayCompletions = 1000,
       },
     }
   end,
