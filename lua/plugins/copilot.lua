@@ -33,6 +33,8 @@ return {
     suggestion = {
       keymap = {
         accept = false, -- handled by completion engine
+        next = "<C-x>",
+        prev = "<C-z>",
       },
     },
     filetypes = {
