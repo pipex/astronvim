@@ -21,7 +21,6 @@ return {
     },
     integrations = {
       treesitter = true,
-      telescope = true,
       which_key = true,
       dashboard = false,
       neogit = true,
