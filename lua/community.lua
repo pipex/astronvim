@@ -13,4 +13,5 @@ return {
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.nix" },
   { import = "astrocommunity.pack.cue" },
+  { import = "astrocommunity.recipes.ai" },
 }
