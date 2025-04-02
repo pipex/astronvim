@@ -32,6 +32,10 @@ return {
               desc = "Goto Reference",
               cond = "textDocument/references",
             },
+            ["<Leader>lG"] = {
+              function() require("snacks").picker.lsp_workspace_symbols() end,
+              desc = "Workspace Symbols",
+            },
           },
         },
       },
