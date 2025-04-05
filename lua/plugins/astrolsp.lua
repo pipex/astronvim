@@ -32,6 +32,7 @@ return {
       --   return true
       -- end
     },
+
     -- enable servers that you already have installed without mason
     servers = {
       -- "pyright"
@@ -40,6 +41,15 @@ return {
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      rust_analyzer = {
+        settings = {
+          ["rust-analyzer"] = {
+            cargo = {
+              allFeatures = true,
+            },
+          },
+        },
+      },
     },
     -- customize how language servers are attached
     handlers = {
