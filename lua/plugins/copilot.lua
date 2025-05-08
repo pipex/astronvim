@@ -71,7 +71,10 @@ return {
     {
       "Saghen/blink.cmp",
       opts = {
-        enabled = function() return not require("copilot.suggestion").is_visible() end,
+        enabled = function()
+          if require("copilot.suggestion").is_visible() then return false end
+          return true
+        end,
       },
     },
   },
