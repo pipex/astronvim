@@ -1,4 +1,4 @@
-local function is_private_project()
+local function is_public_project()
   -- Check package.json for "private": true
   local package_json = vim.fn.findfile("package.json", ".;")
   if package_json ~= "" then
@@ -6,7 +6,7 @@ local function is_private_project()
     if file then
       local content = file:read "*all"
       file:close()
-      if content:match '"private"%s*:%s*true' then return true end
+      if content:match '"private"%s*:%s*true' then return false end
     end
   end
 
@@ -17,11 +17,11 @@ local function is_private_project()
     if file then
       local content = file:read "*all"
       file:close()
-      if content:match "publish%s*=%s*false" then return true end
+      if content:match "publish%s*=%s*false" then return false end
     end
   end
 
-  return false
+  return true
 end
 
 return {
@@ -38,17 +38,13 @@ return {
       },
     },
     filetypes = {
-      javascript = true,
-      typescript = function()
-        if is_private_project() then return false end
-        return true
-      end,
+      javascript = is_public_project,
+      typescript = is_public_project,
       lua = true,
       go = true,
-      rust = function()
-        if is_private_project() then return false end
-        return true
-      end,
+      rust = is_public_project,
+      nix = true,
+      sh = true,
       ["*"] = false,
     },
     server_opts_overrides = {
@@ -70,6 +66,12 @@ return {
             end,
           },
         },
+      },
+    },
+    {
+      "Saghen/blink.cmp",
+      opts = {
+        enabled = function() return not require("copilot.suggestion").is_visible() end,
       },
     },
   },
