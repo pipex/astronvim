@@ -48,6 +48,7 @@ return {
               allFeatures = true,
             },
             procMacro = {
+              enabled = true,
               ignored = {
                 ["napi-derive"] = { "napi" },
               },
