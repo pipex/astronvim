@@ -53,11 +53,6 @@ return {
                 ["napi-derive"] = { "napi" },
               },
             },
-            diagnostics = {
-              enable = true,
-              disabled = { "unresolved-proc-macro" },
-              enableExperimental = true,
-            },
           },
         },
       },
