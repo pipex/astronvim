@@ -56,6 +56,13 @@ return {
           },
         },
       },
+      vtsls = {
+        settings = {
+          vtsls = {
+            autoUseWorkspaceTsdk = true,
+          },
+        },
+      },
     },
     -- customize how language servers are attached
     handlers = {
