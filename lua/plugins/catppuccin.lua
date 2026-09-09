@@ -5,7 +5,7 @@ return {
   dependencies = {
     {
       "AstroNvim/astroui",
-      opts = { colorscheme = "catppuccin" } --[[@as AstroUIOpts]],
+      opts = { colorscheme = "catppuccin-nvim" } --[[@as AstroUIOpts]],
     },
   },
   ---@type CatppuccinOptions
