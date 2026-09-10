@@ -77,19 +77,19 @@ return {
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
       },
-    },
-    v = {
-      -- Map home row arrows to something more compatible with
-      -- my keyboard
-      [";"] = "l",
-      ["l"] = "k",
-      ["k"] = "j",
-      ["j"] = "h",
-      ["h"] = "",
-    },
-    [""] = {
-      -- Use Ctrl+C to go back to normal mode (useful with keyboards without an esc key)
-      ["<C-C>"] = "<Esc>",
+      v = {
+        -- Map home row arrows to something more compatible with
+        -- my keyboard
+        [";"] = "l",
+        ["l"] = "k",
+        ["k"] = "j",
+        ["j"] = "h",
+        ["h"] = "",
+      },
+      [""] = {
+        -- Use Ctrl+C to go back to normal mode (useful with keyboards without an esc key)
+        ["<C-C>"] = "<Esc>",
+      },
     },
   },
 }
